@@ -1,0 +1,15 @@
+#December 18th 10:45 am - 12:15pm
+
+#divisible
+#make requirements. Create a while loop, so that until the requirement is acheived, the number value will conintue to increase
+#error messages saying unsupported operand type, or value is not defined.
+#testing the range function
+number = 1
+#print (list(range(0,20)))
+values = list(range(1,21))
+for value in values:
+  while number % value != 0:
+    number += 1
+
+print (number)
+  
