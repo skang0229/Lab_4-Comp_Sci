@@ -14,7 +14,7 @@ for value in values:
 print (number)
   
 
-
+---------------------
 
 
 #January 8th 6:30pm-7:10pm; 8:00pm - 8:35pm
@@ -59,3 +59,53 @@ while fib <= 4000000:
 print (sum)
 
 #sum = 4613732
+
+
+----------------
+
+#January 10th 4:30 - 5:15; 6:40 - 7:26
+
+"""What is the largest prime factor of the number 600851475143"""
+
+myNum = 600851475143
+factors= []
+i = 2 
+#if we set this as 1, the while loop will go out to infinity
+#a number is divisible by 1 no matter how many times we divide
+while myNum != 1:
+    if myNum % i != 0:
+        i += 1
+    else: 
+        myNum = myNum/ i
+        factors.append(myNum)
+#if divisible, divide, if not, check the next number
+
+largest_prime = max(factors)
+
+print(largest_prime)
+
+#largest prime = 8462696833
+
+
+"""Sum square difference"""
+
+#split into two parts: sum of squares and square of sum
+#part 1
+sum_squares = 0
+
+for i in range(1,101):
+    sum_squares += i ** 2
+
+#part 2
+square_sums = 0
+
+for g in range(1,101):
+    square_sums += i
+square_sums = square_sums ** 2
+
+print (square_sums - sum_squares)
+
+#the difference is 99661650
+
+
+
