@@ -109,3 +109,40 @@ print (square_sums - sum_squares)
 
 
 
+--------------------
+#January 14 12:20-1:00 ; 1:15- 1:52
+
+
+"""What is the smallest positive number that is evenly divisible by all the numbers from 1 to 20"""
+#trial 1 and 2 done in work session 1.
+
+def getfactors(myNum):
+    factors = []
+    i= 2
+    while myNum != 1:
+        if myNum % i != 0:
+            i += 1
+        else: 
+            myNum = myNum/ i
+            factors.append(i)
+    return factors
+
+factors_list = []
+for num in range(1, 21):
+    factors_list.append(getfactors(num))
+#print (factors_list)
+#successfully prints out all the factors from 1 to 21. 
+#stuck here... how do I sort out the prime numbers for an arbitrary range n?
+
+
+
+"""10001st prime"""
+
+allNums = []
+for i in range(1, 10001): #would be 1,n for other arbitrary cases
+    allNums.append(i)
+    
+for g in allNums:
+    i = 2
+    if g/i != 1 and g % i == 0:#if g is not prime
+        print (g) #creates an infinite list of numbers... pretty cool to watch the terminal print all the numbers tho
