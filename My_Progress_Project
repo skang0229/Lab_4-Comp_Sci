@@ -146,3 +146,51 @@ for g in allNums:
     i = 2
     if g/i != 1 and g % i == 0:#if g is not prime
         print (g) #creates an infinite list of numbers... pretty cool to watch the terminal print all the numbers tho
+        
+        
+        
+        
+-------------------------
+
+
+
+
+#January 18th 5:25- 6:17
+
+
+"""continuing Smallest multiple"""
+
+def getfactors(myNum):
+    factors = []
+    i= 2
+    while myNum != 1:
+        if myNum % i != 0:
+            i += 1
+        else: 
+            myNum = myNum/ i
+            factors.append(i)
+    return factors
+
+factors_list = []
+prime= 1
+for num in range(1, 21):
+    if len(getfactors(num)) == 1:
+        prime *= num
+    else:
+        factors_list.append(getfactors(num))
+
+
+def sort_factors(list_of_factors):
+    repeated_factors = []
+    for element in list_of_factors[1:]:
+        while len(element) != 0:
+            first = element[0]
+            if prime % first == 0:
+                element.remove(first)
+
+            elif prime % first != 0:
+                repeated_factors.append(first)
+                element.remove(first)
+        
+print (sort_factors(factors_list))
+#for some reason, prints out an empty list....
