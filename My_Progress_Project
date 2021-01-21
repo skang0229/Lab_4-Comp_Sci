@@ -170,19 +170,21 @@ def getfactors(myNum):
             myNum = myNum/ i
             factors.append(i)
     return factors
+#helper function properly functions...
+#divides myNum by its factors until it hits 1
 
 factors_list = []
 prime= 1
-for num in range(1, 21):
+for num in range(1, 21): #would be range(1,n)
     if len(getfactors(num)) == 1:
-        prime *= num
+        prime *= num #multiply all the factors beforehand. Also works fine.
     else:
-        factors_list.append(getfactors(num))
+        factors_list.append(getfactors(num)) #found all the factors that are not prime. Works fine till here
 
 
 def sort_factors(list_of_factors):
     repeated_factors = []
-    for element in list_of_factors[1:]:
+    for element in list_of_factors[1:]:#have to get rid of the first list in list_of_factors. Works fine.
         while len(element) != 0:
             first = element[0]
             if prime % first == 0:
@@ -191,6 +193,43 @@ def sort_factors(list_of_factors):
             elif prime % first != 0:
                 repeated_factors.append(first)
                 element.remove(first)
-        
+          #hmm, print(element) does not print the wanted result
+          #cant think of a way to fix it. Dont know whats wrong...
 print (sort_factors(factors_list))
 #for some reason, prints out an empty list....
+
+
+----------------
+
+
+#January 21 8:30-9:35
+
+#attempted to debug Euler problem 5. Not very successful.
+
+
+"""Largest product in a series"""
+
+def get_product(num): #input a string value
+    #I thought of a very sneaky method of finding the product of the first n digits of a number
+    value = int(num[:13])
+    result = 1
+    while value > 0:
+        result *= int(value%10) #value % 10 of a number will be the ones-digit of that number
+        value = int(value/10) #since int() drops the decimal places of a number, we now have removed the ones-digit of a number and created a new number
+    #using a while loop, this process continues until the ones_digit of the number becomes the number itself.
+    
+    return result
+
+
+def greatest_product(number):
+    products = []
+    digits = str(number)
+    while len(digits) > 3:
+        products.append(get_product(digits))
+        digits = digits[1:]
+
+    return max(products)
+
+
+#I attempted to try inserting the 1000 digit number, however nothing printed out. There was no error message either.
+#theoretically, it should work. Perhaps there are too many steps for the computer to process?
